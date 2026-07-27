@@ -1,0 +1,1048 @@
+/* ===== ОБЩИЕ СТИЛИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    /* background-color: #ffffff;  ← ЗАКОММЕНТИРУЙ ИЛИ УДАЛИ ЭТУ СТРОКУ */
+    color: #1a2a3a;
+    line-height: 1.45;
+}
+
+/* Плавная прокрутка по якорям */
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* ===== ШАПКА ===== */
+.header {
+    background-color: #2BABE3;
+    padding: 16px 0;
+    width: 100%;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Логотип — без flex:1, просто оставляем */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 100px;          /* сдвигаем логотип вправо */
+}
+
+.header-logo img {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+/* Навигация */
+.header-nav {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 0 40px;   /* ← добавляем отступы слева и справа */
+}
+
+.nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    padding: 8px 0;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* Соцсети */
+.header-social {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-right: 100px;         /* сдвигаем соцсети влево */
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-link:hover img {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 1000px) {
+    .header-container {
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .header-nav {
+        margin: 0;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .header-nav {
+        gap: 20px;
+    }
+    
+    .logo-text {
+        font-size: 16px;
+    }
+}
+
+/* ===== БАННЕР ===== */
+.banner {
+    background-image: url('../images/banner-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 600px;
+    position: relative;
+}
+
+.banner-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 140px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.banner-quote {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* ===== ОСНОВНЫЕ ИНИЦИАТИВЫ ===== */
+/* Блок инициатив */
+.initiatives {
+    background-color: #1CD7FF;
+    padding: 60px 32px 80px;
+    position: relative;
+    width: 100%;
+}
+
+.initiatives-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 48px;
+}
+
+/* Список карточек — столбиком */
+.initiatives-list {
+    max-width: 743px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Белая карточка */
+.initiative-card {
+    background: #ffffff;
+    border-radius: 18px;
+    width: 743px;
+    height: 201px;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Изображение */
+.card-image {
+    width: 264px;
+    height: 168px;
+    object-fit: contain;
+    margin: 16px;
+    border-radius: 12px;
+}
+
+/* Контентная часть */
+.card-content {
+    flex: 1;
+    padding: 16px 20px 16px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Заголовок */
+.card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+/* Текст */
+.card-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+/* Кнопка */
+.card-btn {
+    background: #2BABE3;
+    border: none;
+    border-radius: 5px;
+    width: 135px;
+    height: 38px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.card-btn:hover {
+    background: #0fb0d4;
+}
+
+/* ===== ЗАПЛАНИРОВАННЫЕ МЕРОПРИЯТИЯ ===== */
+.events {
+    background-color: #ffffff;
+    padding: 60px 32px 80px;
+    width: 100%;
+}
+
+.events-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #2BABE3;        /* ← изменено на #2BABE3 */
+    margin-bottom: 48px;
+}
+
+/* Сетка 3 колонки × 2 строки */
+.events-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 305px);
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Карточка: 304.73 × 304.73 */
+.event-card {
+    position: relative;
+    width: 305px;
+    height: 305px;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Фоновое изображение */
+.event-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Наложение #0D1435 с прозрачностью 68% */
+.event-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0D1435;
+    opacity: 0.68;
+    z-index: 2;
+}
+
+/* Рамка #2BABE3 */
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #2BABE3;
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* Контент поверх наложения — вертикальное центрирование */
+.event-content {
+    position: relative;
+    z-index: 3;
+    padding: 24px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* ← центрирует всё по вертикали */
+    color: #ffffff;
+}
+
+/* Название мероприятия — максимум 2 строки */
+.event-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    text-align: center;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+}
+
+/* Описание — фиксированная высота на 4-5 строк */
+.event-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    text-align: justify;          /* ← выравнивание по ширине (ровные края) */
+    text-align-last: center;      /* ← последняя строка по центру, чтобы не было 1-2 слов */
+    height: 90px;                 /* 12px * 1.5 * 5 = 90px (ровно 5 строк) */
+    overflow: hidden;
+    word-break: break-word;
+}
+
+/* Кнопка: 210.06 × 35.62, цвет 2BABE3 */
+.event-btn {
+    background: #2BABE3;        /* ← новый цвет */
+    border: none;
+    border-radius: 4px;
+    width: 210px;
+    height: 36px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 auto;
+    display: block;
+}
+
+.event-btn:hover {
+    background: #1a8bb8;
+}
+
+/* ===== ПРОШЕДШИЕ СОБЫТИЯ ===== */
+.past {
+    position: relative;
+    padding: 80px 32px 100px;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Фон */
+.past-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.past-bg-blue {
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    width: 70%;
+    height: 80%;
+    background: #2BABE3;
+    transform: rotate(3deg);
+}
+
+.past-bg-transparent {
+    position: absolute;
+    bottom: 50px;
+    right: -50px;
+    width: 70%;
+    height: 80%;
+    background: rgba(43, 171, 227, 0.4);
+    transform: rotate(-3deg);
+}
+
+.past-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.past-title {
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 48px;
+    position: relative;
+    top: 25px;              /* ← смещаем только заголовок вниз */
+}
+
+/* Слайдер */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Или проще — фиксированная ширина */
+.slider-wrapper {
+    flex: 1;
+    overflow: hidden;
+    width: 1011px;      /* 313px * 3 + 24px * 2 = 939 + 48 = 987px, с запасом 1011px */
+    max-width: 100%;    /* чтобы на мобилках не ломалось */
+}
+
+.slider-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+/* Карточки */
+/* Карточки — без эффектов при наведении */
+.past-card {
+    min-width: 313px;
+    width: 313px;
+    height: 377px;
+    background: #ffffff;
+    border-radius: 23px;
+    overflow: hidden;
+    box-shadow: none;
+    flex-shrink: 0;
+    transition: none;                    /* ← убрали анимацию */
+}
+
+.past-card:hover {
+    transform: none;                     /* ← убрали подъём */
+    box-shadow: none;                   /* ← убрали тень */
+}
+
+.past-card-img {
+    width: 100%;
+    height: 188px;
+    object-fit: cover;
+    border-radius: 23px 23px 0 0;
+}
+
+.past-card-content {
+    padding: 20px 16px;
+}
+
+.past-card-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a3a2a;
+    margin-bottom: 10px;
+}
+
+.past-card-content p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.45;
+}
+
+/* Стрелки */
+/* Стрелки — тоже без теней, если нужно */
+.slider-arrow {
+    background: #ffffff;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: #1CD7FF;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;                   /* ← убрали тень у стрелок */
+    transition: all 0.2s ease;
+}
+
+.slider-arrow:hover {
+    background: #f5f5f5;
+    transform: scale(1.05);
+}
+
+.slider-arrow.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .slider-arrow {
+        display: none;
+    }
+}
+
+/* ===== ПОДВАЛ ===== */
+/* ===== ПОДВАЛ ===== */
+.footer {
+    background-color: #ffffff;
+    padding: 48px 32px 32px;
+    border-top: 1px solid #eef2f5;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Логотип */
+.footer-logo {
+    flex-shrink: 0;
+}
+
+.footer-logo img {
+    width: 150px;
+    height: auto;
+}
+
+/* Информационная часть */
+.footer-info {
+    flex: 1;
+}
+
+/* Верхняя строка: текст и соцсети на одном уровне */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 32px;
+}
+
+.footer-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0;
+}
+
+/* Соцсети — текст сверху, иконки под ним */
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.social-label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.social-icons-img {
+    height: 24px;
+    width: auto;
+    transition: opacity 0.2s ease;
+}
+
+.social-icons-img:hover {
+    opacity: 0.7;
+}
+
+/* Нижняя строка с копирайтом */
+.footer-bottom {
+    margin-top: 16px;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 32px;
+    }
+    
+    .footer-top {
+        flex-direction: column;
+    }
+    
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .footer-description {
+        max-width: 100%;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 32px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .footer-description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .slider-arrow {
+        display: none;
+    }
+    
+    .slider-track {
+        gap: 16px;
+    }
+}
+/* Адаптивность */
+@media (max-width: 900px) {
+    .slider-arrow {
+        display: none;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .slider-arrow {
+        display: none;
+    }
+    
+    .slider-track {
+        gap: 16px;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 305px);
+    }
+}
+
+@media (max-width: 700px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 305px);
+    }
+}
+
+@media (max-width: 700px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 900px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .header-nav {
+        justify-content: center;
+    }
+    
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        min-height: 450px;
+    }
+    
+    .banner-quote {
+        font-size: 16px;
+        max-width: 90%;
+    }
+    
+    .initiatives {
+        padding: 30px 20px;
+    }
+    
+    .events-section {
+        padding: 0 20px 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .header-nav {
+        gap: 20px;
+    }
+    
+    .logo-text {
+        font-size: 16px;
+    }
+    
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Подключаем шрифт Rubik Mono One с правильным весом */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+/* Общие стили для всех заголовков секций */
+.initiatives-title,
+.events-title,
+.past-title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transform: scaleX(1.05);
+    display: inline-block;
+    width: 100%;
+}
+
+/* Дополнительно, если нужны разные цвета */
+.initiatives-title {
+    color: #ffffff;
+    margin-bottom: 48px;
+}
+
+.events-title {
+    color: #2BABE3;
+    margin-bottom: 48px;
+}
+
+.past-title {
+    color: #ffffff;
+    margin-bottom: 48px;
+}
+
+/* Если шрифт всё равно не загружается — используем fallback с похожим жирным шрифтом */
+@supports (font-variation-settings: normal) {
+    .initiatives-title,
+    .events-title,
+    .past-title {
+        font-family: 'Rubik', 'Impact', 'Arial Black', sans-serif;
+    }
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    width: 526.87px;
+    height: 251.58px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+    font-weight: 800;
+    font-size: 24px;
+    margin: 0 0 16px 0;
+    color: #1a1a1a;
+}
+
+.modal-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #333;
+    margin: 0 0 24px 0;
+    max-width: 90%;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 4; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-close-btn {
+    background: #2BABE3;
+    width: 107.08px;
+    height: 26.31px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-btn:hover {
+    background: #1f8ab8;
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО РЕГИСТРАЦИИ ===== */
+.modal-reg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-reg-content {
+    width: 315.63px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-reg-title {
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 13px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2BABE3;
+}
+
+.modal-reg-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.reg-submit-btn {
+    background: #2BABE3;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.reg-submit-btn:hover {
+    background: #1f8ab8;
+}
+
+.reg-clear-btn {
+    background: #e0e0e0;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.reg-clear-btn:hover {
+    background: #ccc;
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО УСПЕХА ===== */
+.modal-success {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2100;
+}
+
+.modal-success-content {
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-success-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+}
+
+.success-close-btn {
+    background: #2BABE3;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 24px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.success-close-btn:hover {
+    background: #1f8ab8;
+}
+
+/* ФОН ТОЛЬКО ДЛЯ СИНИХ СЕКЦИЙ */
+.header,
+.banner,
+.initiatives {
+    background-color: #2BABE3;
+}
+
+/* А эти секции ОСТАЮТСЯ БЕЛЫМИ */
+.events,
+.footer,
+.past {
+    background-color: #ffffff;
+}
+
+/* Фон html на случай широких экранов — но он будет перекрыт белыми секциями */
+html {
+    background-color: #ffffff;
+}
